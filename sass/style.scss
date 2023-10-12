@@ -1,0 +1,515 @@
+@import url("https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@600&family=Montserrat&family=Roboto&display=swap");
+@import "_var";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f2f2f2;
+  transition: all 0.3s ease-in;
+}
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+// nav styles
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+  font-family: "Montserrat";
+  padding: 30px 15px;
+  font-size: 14px;
+  & > .nav-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    & > li {
+      margin-right: 60px;
+    }
+    & > li:first-child {
+      background-color: rgb(12, 156, 156);
+      border-radius: 30px;
+      padding: 7px 15px;
+      color: white;
+      text-align: center;
+      transition: 0.3s;
+      & > .under-line {
+        border-bottom: 2px solid rgb(12, 156, 156);
+        width: 0;
+        padding-top: 3px;
+        transition: 0.4s ease-in;
+      }
+      &:hover {
+        background-color: transparent;
+        color: black;
+      }
+    }
+    & > li:first-child:hover > .under-line {
+      width: 100%;
+    }
+    & > li:nth-child(2) {
+      margin-right: 0px !important;
+      padding-bottom: 2px;
+    }
+    & > li:last-child > div {
+      display: flex;
+      align-items: center;
+      & > .toggle {
+        display: none;
+      }
+      & > label {
+        position: relative;
+        width: 50px;
+        height: 25px;
+        background-color: #d0d0d0;
+        border-radius: 50px;
+        margin: 0 15px 0;
+        cursor: pointer;
+        & > .toggle-circle {
+          background-color: white;
+          height: 21px;
+          width: 20px;
+          position: absolute;
+          border-radius: 50%;
+          top: 1.9px;
+          left: 2px;
+          transition: all 0.3s ease-in;
+        }
+      }
+    }
+  }
+}
+// header + left side styles
+.logo {
+  width: 100%;
+  & > a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    text-shadow: 0px 0px 12px #000000;
+    margin-left: 60px;
+    font-family: "Montserrat";
+    margin-top: 32px;
+  }
+}
+.split-left {
+  width: 60%;
+  height: 100vh;
+  background: url(../images/pexels-enric-crruz-lópez-62722341.png) no-repeat
+    center center / cover;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  & header {
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    & > h1 {
+      font-family: "Montserrat";
+      font-weight: 500;
+      font-size: 36px;
+      padding-bottom: 60px;
+    }
+    & > .search-box {
+      display: flex;
+      align-items: center;
+    }
+    & > .search-box > input {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 12px 32px;
+      width: 403px;
+      cursor: pointer;
+      position: relative;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0)
+      );
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+    & > .search-box > input:focus {
+      outline: none;
+    }
+    ::placeholder {
+      color: rgba(255, 255, 255, 0.693);
+      font-family: "Montserrat";
+    }
+    & > .search-box button {
+      position: absolute;
+      left: 39%;
+      transform: translate(0, 15%);
+      background-color: transparent;
+      border: none;
+      & .bx-search {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.729);
+      }
+    }
+    & > .search-box .bx-current-location {
+      font-size: 22px;
+      padding-left: 15px;
+    }
+  }
+}
+
+// right side style
+.split-right {
+  width: 40%;
+  // today's weather style sheet
+  & > .weather__today-container {
+    margin: 31px auto;
+    width: 55%;
+    border-radius: 20px;
+    padding: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 61px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    font-family: "Montserrat";
+    transition: all 0.3s ease-in;
+    & .weather-list {
+      list-style: none;
+      & > li {
+        padding-bottom: 5px;
+        color: rgb(93, 93, 93);
+        font-size: 14px;
+      }
+    }
+  }
+  & .weather-heading {
+    font-size: 41px;
+    font-family: "Montserrat";
+    font-weight: 900;
+    padding-left: 41px;
+  }
+  & .weather__today-info {
+    & .weather-condition {
+      display: flex;
+      align-items: center;
+      & > h3 {
+        font-weight: 400;
+        font-size: 37px;
+      }
+      & > .weather-icon {
+        width: 75px;
+        height: 75px;
+        display: flex;
+        justify-content: center;
+      }
+    }
+    & .weather-date {
+      color: #848484;
+      font-weight: 500;
+      font-size: 14px;
+    }
+  }
+  & .weather-degree {
+    font-size: 35px;
+    font-weight: 700;
+    text-align: center;
+  }
+  & > .weather-info {
+    display: flex;
+    justify-content: space-between;
+    & > .humidity-container {
+      width: 205px;
+      height: 225px;
+      font-family: $primary-font;
+      border-radius: 20px;
+      margin-left: 21px;
+      box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+        rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+      & > .humidity-icon {
+        padding-top: 31px;
+        padding-left: 12px;
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        & > img {
+          filter: invert(49%) sepia(97%) saturate(371%) hue-rotate(131deg)
+            brightness(84%) contrast(101%);
+        }
+        & > span {
+          font-size: 31px;
+          font-weight: 500;
+        }
+      }
+      & > p {
+        font-size: 21px;
+        margin-top: 50px;
+        padding-left: 12px;
+      }
+    }
+    & > .wind-container {
+      width: 205px;
+      height: 225px;
+      font-family: $primary-font;
+      border-radius: 20px;
+      margin-right: 21px;
+      box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+        rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+      & > .wind-icon {
+        padding-top: 31px;
+        padding-left: 12px;
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        & > img {
+          filter: invert(49%) sepia(97%) saturate(371%) hue-rotate(131deg)
+            brightness(84%) contrast(101%);
+        }
+        & > span {
+          font-size: 21px;
+          font-weight: 500;
+        }
+      }
+      & > p {
+        font-size: 21px;
+        margin-top: 40px;
+        padding-left: 12px;
+      }
+    }
+  }
+  & .country {
+    margin-bottom: 31px;
+  }
+  & .others {
+    width: 25%;
+    border-radius: 20px;
+    font-family: $primary-font;
+    padding-top: 40px;
+    padding-left: 21px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+      rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    & > .others-list {
+      list-style: none;
+      margin-top: 12px;
+      & > li {
+        margin-top: 7px;
+      }
+    }
+  }
+}
+// Dark Mode theme :
+.toggle-circle.dark-mode {
+  transform: translate(26px, 0);
+}
+body.dark-mode {
+  background-color: $darkMode-primary_bg;
+}
+nav.dark-mode {
+  color: $button-color;
+}
+.nav-list > li:first-child:hover.dark-mode {
+  color: white;
+}
+.weather-heading.dark-mode {
+  color: white;
+}
+.weather__today-container.dark-mode {
+  background-color: $darkMode-secondary_bg;
+}
+.weather-degree.dark-mode {
+  color: white;
+}
+.weather-condition > h3.dark-mode {
+  color: white;
+}
+.weather-list.dark-mode {
+  color: white;
+}
+.weather-info.dark-mode {
+  background-color: $darkMode-secondary_bg;
+}
+.wind-container.dark-mode {
+  background-color: $darkMode-secondary_bg;
+}
+.others.dark-mode {
+  background-color: $darkMode-secondary_bg;
+}
+.humidity-container.dark-mode {
+  background-color: $darkMode-secondary_bg !important;
+}
+.weather-date.dark-mode {
+  color: $button-color !important;
+}
+.others-list.dark-mode,
+.humidity-container > p.dark-mode,
+.wind-container > p.dark-mode {
+  color: white;
+}
+.speed.dark-mode {
+  color: white;
+}
+.humidity.dark-mode {
+  color: white;
+}
+// responsive
+@media screen and(max-width : 600px) {
+  .split-left {
+    height: 100vh;
+  }
+  .split-left header > h1 {
+    font-size: 18px;
+    padding-left: 27px;
+  }
+  .split-left header > .search-box > input {
+    padding: 8px 15px;
+    width: 148px;
+  }
+  .split-left header > .search-box {
+    margin-left: 4px;
+  }
+  .split-left header > .search-box button {
+    left: 40%;
+  }
+  .split-left header > .search-box .bx-current-location {
+    padding-left: 4px;
+  }
+
+  nav {
+    flex-direction: row;
+    font-size: 9px;
+  }
+  nav > .nav-list > li:first-child {
+    padding: 5px 4px;
+  }
+  nav > .nav-list > li:last-child > div > label {
+    width: 39px;
+    height: 26px;
+    margin: 0;
+  }
+  nav > .nav-list > li {
+    margin-right: 0;
+  }
+  nav > .nav-list > li:last-child > div > label > .toggle-circle.dark-mode {
+    transform: translate(14px, 0);
+  }
+  .split-right .weather-heading {
+    font-size: 21px;
+    padding-left: 10px;
+  }
+  .split-right .weather-degree {
+    font-size: 21px;
+  }
+  .split-right .weather__today-info .weather-condition > .weather-icon {
+    width: 41px;
+    height: 41px;
+  }
+  .split-right .weather__today-info .weather-condition > h3 {
+    font-size: 19px;
+  }
+  .split-right > .weather__today-container {
+    width: 20%;
+    height: 131px;
+    margin: 6px auto;
+  }
+  .split-right > .weather-info {
+    flex-direction: column;
+    gap: 11px;
+    margin-top: 40px;
+  }
+  .split-right > .weather-info > .humidity-container {
+    margin-left: 8px;
+  }
+  .split-right > .weather-info > .humidity-container > .humidity-icon > img {
+    width: 41px;
+    height: 41px;
+  }
+  .split-right > .weather-info > .humidity-container > .humidity-icon > span {
+    font-size: 19px;
+  }
+  .split-right > .weather-info > .humidity-container > p {
+    margin-top: 14px;
+  }
+  .split-right > .weather-info > .humidity-container {
+    width: 140px;
+    height: 140px;
+  }
+  .split-right .others {
+    width: 140px;
+    padding: 14px;
+    margin-left: 8px;
+  }
+  .split-right .others > .others-list,
+  .split-right .others > .others-list > li {
+    margin-top: 0;
+  }
+  .split-right > .weather-info > .wind-container > .wind-icon > img {
+    width: 41px;
+    height: 41px;
+  }
+  .split-right > .weather-info > .wind-container > .wind-icon > span {
+    font-size: 16px;
+  }
+  .split-right > .weather-info > .wind-container > p {
+    font-size: 17px;
+    margin-top: 9px;
+  }
+  .split-right > .weather-info > .wind-container {
+    width: 140px;
+    height: 140px;
+    margin-left: 8px;
+  }
+  .split-right .country {
+    margin-bottom: 8px;
+  }
+}
+@media screen and (max-width: 900px) and (min-width: 600px) {
+  .split-left header > h1 {
+    padding-left: 28px;
+    font-size: 27px;
+  }
+  .split-left header > .search-box > input {
+    padding: 14px 37px;
+    width: 317px;
+  }
+  .split-left header > .search-box button .bx-search {
+    left: 43%;
+  }
+  nav {
+    flex-direction: row;
+  }
+  .split-left {
+    height: 115vh;
+  }
+  .split-right > .weather__today-container {
+    padding: 50px;
+    width: 78%;
+  }
+  .split-right > .weather-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .split-right .others {
+    width: 62%;
+    padding: 19px;
+    margin-left: 21px;
+  }
+  .split-right > .weather-info > .wind-container,
+  .split-right > .weather-info > .humidity-container,
+  .split-right .others {
+    margin: 0 auto;
+  }
+  .split-right {
+    height: 115vh;
+  }
+}

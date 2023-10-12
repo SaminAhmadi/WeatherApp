@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- This Project gets the icons from BoxIcons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- This Project uses google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@600&family=Montserrat:wght@100;300;400;500;600;700&family=Roboto:wght@400;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom scss style -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Forecast</title>
+  </head>
+  <body onload = "getInfo()">
+    <!-- left section -->
+    <div class="container">
+      <section class="split-left">
+        <div class="logo">
+          <a href="#">Forecast</a>
+        </div>
+        <!-- header -->
+        <header>
+          <h1>The Only Weather Forcast You Need</h1>
+          <div class="search-box">
+            <input type="text" placeholder="Enter Location" />
+            <button disabled><i class="bx bx-search"></i></button>
+            <i class="bx bx-current-location"></i>
+          </div>
+        </header>
+      </section>
+      <!-- Right section -->
+      <section class="split-right">
+        <!-- Navigation -->
+        <nav>
+          <ul class="nav-list">
+            <li>
+              Weather
+              <div class="under-line"></div>
+            </li>
+            <li>Dark Mode</li>
+            <li>
+              <div class="toggle-container">
+                <input type="checkbox" name="DarkMode-On" class="toggle" />
+                <label for=""> <div class="toggle-circle"></div> </label>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <!-- Today Weather info -->
+        <h2 class="weather-heading"></h2>
+        <div class="weather__today-container ">
+          <div class="weather__today-info">
+            <h2 class="weather-degree"></h2>
+            <div class="weather-condition">
+              <h3></h3>
+              <div class="weather-icon"></div>
+            </div>
+            <p class="weather-date"></p>
+          </div>
+        </div>
+        <!--  Weather info -->
+        <h2 class="weather-heading country"></h2>
+         <div class="weather-info">
+          <div class="humidity-container ">
+          <div class="humidity-icon">
+            <img src="./images/humidity.png" alt="">
+            <span class="humidity"></span>
+          </div>
+          <p>Humidity</p>
+        </div>
+        <div class="others">
+          <ul class="others-list">
+            <li class="temp-min"><span>&#8451;</span></li>
+            <li class="temp-max"><span>&#8451;</span></li>
+            <li class="lon"></li>
+            <li class="lat"></li>
+            <li class="visibility"></li>
+          </ul>
+        </div>
+        <div class="wind-container">
+          <div class="wind-icon">
+            <img src="./images/wind.png" alt="">
+            <span class="speed"></span>
+          </div>
+          <p>Wind Speed</p>
+        </div>
+         </div>
+      </section>
+       
+
+    <script src="./JS/script.js"></script>
+  </body>
+</html>
