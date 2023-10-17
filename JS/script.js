@@ -25,7 +25,6 @@ body.addEventListener("load", getInfo);
 searchBox.addEventListener("keyup", (e) => {
   currentCity = searchBox.value;
   if (currentCity != " " && e.keyCode == 13) {
-    cityName.innerHTML = `${currentCity.toUpperCase()}`;
     searchBox.focus();
     getInfo();
   }
@@ -39,18 +38,23 @@ function getInfo(e) {
   )
     .then((res) => res.json())
     .then((data) => {
-      cityName.innerHTML = `${currentCity.toUpperCase()}`;
-      countryName.innerHTML = convertCountryCode(data.sys.country);
-      temp.innerHTML = `${Math.round(data.main.temp)}&#176`;
-      lat.innerHTML = `lat :${data.coord.lat}`;
-      lon.innerHTML = `lon :${data.coord.lon}`;
-      max.innerHTML = `Highest :${data.main.temp_max.toFixed()}°`;
-      min.innerHTML = `Lowest : ${data.main.temp_min.toFixed()}°`;
-      humidity.innerHTML = `${data.main.humidity}%`;
-      visibility.innerHTML = `Visibility : ${data.visibility}`;
-      windSpeed.innerHTML = `${data.wind.speed}m/s`;
-      weatherCondition.innerHTML = `${data.weather[0].main}`;
-      weatherIcon.innerHTML = `<img src=" https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png"/>`;
+      console.log(data);
+      if (data.cod == "404") {
+        alert("wrong city name! Please Try Again");
+      } else {
+        cityName.innerHTML = `${currentCity.toUpperCase()}`;
+        countryName.innerHTML = convertCountryCode(data.sys.country);
+        temp.innerHTML = `${Math.round(data.main.temp)}&#176`;
+        lat.innerHTML = `lat :${data.coord.lat}`;
+        lon.innerHTML = `lon :${data.coord.lon}`;
+        max.innerHTML = `Highest :${data.main.temp_max.toFixed()}°`;
+        min.innerHTML = `Lowest : ${data.main.temp_min.toFixed()}°`;
+        humidity.innerHTML = `${data.main.humidity}%`;
+        visibility.innerHTML = `Visibility : ${data.visibility}`;
+        windSpeed.innerHTML = `${data.wind.speed}m/s`;
+        weatherCondition.innerHTML = `${data.weather[0].main}`;
+        weatherIcon.innerHTML = `<img src=" https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png"/>`;
+      }
     });
 }
 // not a custom function
