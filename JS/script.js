@@ -40,7 +40,7 @@ function getInfo(e) {
     .then((data) => {
       console.log(data);
       if (data.cod == "404") {
-        alert("wrong city name! Please Try Again");
+        alert("همچین شهری وجود نداره :) دوباره امتحان کن");
       } else {
         cityName.innerHTML = `${currentCity.toUpperCase()}`;
         countryName.innerHTML = convertCountryCode(data.sys.country);
