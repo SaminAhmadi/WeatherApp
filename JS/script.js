@@ -34,7 +34,7 @@ toggleBtn.addEventListener("click", activeDarkTheme);
 // Functions
 function getInfo(e) {
   fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${currentCity}&appid=${apiKey}&units=${unit}`
+    `https://api.weatherapi.com/v1/current.json?key=ecd75868ab094aeeb9e100645241807&q=${currentCity}&aqi=no`
   )
     .then((res) => res.json())
     .then((data) => {
